@@ -1,0 +1,43 @@
+version: "3.1"
+
+volumes:
+  sqldb:
+
+networks:
+  sqlnetwork:
+
+services:
+
+  app:
+    image: php:8.2-apache
+    restart: unless-stopped
+    volumes:
+      - "./htdocs:/var/www/html"
+    ports:
+      - 8080:80
+    networks:
+      - sqlnetwork
+
+  db:
+    image: mysql:8.2.0
+    restart: unless-stopped
+    volumes:
+      - "sqldb:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=webapp
+      - MYSQL_USER=webapp
+    networks:
+      - sqlnetwork
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      - PMA_HOST=db
+      - MYSQL_ROOT_PASSWORD=password
+    restart: unless-stopped
+    ports:
+      - 8081:80
+    networks:
+      - sqlnetwork
