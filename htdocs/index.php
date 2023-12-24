@@ -7,8 +7,9 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
-    <form action="">
-        
+    <form action="./scripts/action.php" method="GET">
+        <input type="text" name="campione">
+        <input type="submit" name="invia" value="Invia i dati">
     </form>
 </body>
-</html>
+</html> 
