@@ -7,8 +7,16 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
+    <center>Per favore, scegli un giorno per la consegna e il metodo di pagamento</center>
     <form action="./scripts/action.php" method="GET">
-        <input type="text" name="campione">
+        Qual e il tuo nome? <input type="text" name="nome">
+        <br>
+            Quale giorno desideri per la consegna?
+            <select name="giorno della settimana">
+                <option>Lunedi</option>
+                <option>Martedi</option>
+            </select>
+        </br>
         <input type="submit" name="invia" value="Invia i dati">
     </form>
 </body>

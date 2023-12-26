@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        echo $_GET["campione"]
+        var_dump($_GET)
     ?>
 </body>
 </html>
